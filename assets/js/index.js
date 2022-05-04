@@ -118,18 +118,18 @@ const writeToLocalStorage = (key, value) => {
   localStorage.setItem("tasks", stringifiedValue);
 };
 
+// clear all tasks and reload page
 const clearLocalStorage = () => {
   localStorage.clear();
+  location.reload();
 };
 
 // event listener for Clear all button click
 const clearButton = $(".clearBtn");
-clearButton.click(console.log("hi"));
+clearButton.click(clearLocalStorage);
 
 // event listener for save click
-// const saveButton = $(".saveBtn");
 main.click(getTaskByTimeBlock);
-// writeToLocalStorage();
 
 // event handler for page load
 $(document).ready(onReady);
