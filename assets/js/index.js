@@ -11,6 +11,8 @@ const workHours = [
   { time: "17:00", key: 17 },
 ];
 
+const header = $(".jumbotron");
+
 const main = $("#main");
 
 // initalise LS
@@ -21,6 +23,8 @@ onReady = () => {
   if (!tasks) {
     localStorage.setItem("tasks", JSON.stringify([]));
   }
+
+  renderPage();
 };
 
 // get tasks from local storage
@@ -33,27 +37,32 @@ const readFromLocalStorage = () => {
 };
 
 renderDate = () => {
-  `<p id="currentDay" class="lead">${moment().format(
-    "MMMM Do YYYY, h:mm:ss a"
-  )}</p>`;
+  header.append(
+    `<p id="currentDay" class="lead">${moment().format(
+      "dddd Do MMMM YYYY"
+    )}</p>`
+  );
 };
 
-renderTime = () => {};
+renderTime = () => {
+  header.append(
+    `<p id="currentTime" class="lead">${moment().format("H:mm")}</p>`
+  );
+};
 
-renderTimeBlocks = (workHours) => {
+renderTimeBlocks = () => {
   // create block for each time label within object
   workHours.forEach((hour) => {
     main.append(`<section
-class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
->
-<span class="hour">${hour.time}</span>
-<div class="p-2 flex-grow-1 bd-highlight textarea">
-// TODO readFromLocalStorage
-</div>
-<div class="buttonContainer">
-  <button type="submit" class="saveBtn">Save</button>
-</div>
-</section>`);
+  class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
+  >
+  <span class="hour">${hour.time}</span>
+  <textarea class="p-2 flex-grow-1 bd-highlight textarea">
+  </textarea>
+  <div class="buttonContainer">
+    <button type="button" class="saveBtn">Save</button>
+  </div>
+  </section>`);
   });
 };
 

@@ -57,16 +57,17 @@ body {
   background-color: #06aed5;
   color: white;
   width: 10%;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 /* text entry container */
 .textarea {
   background-color: lightblue;
   resize: none;
-  color: #000000;
-  padding: 1rem;
+  color: darkblue;
+  font-size: 12px;
   text-align: left;
+  border: none;
 }
 
 /* text entry container before current hour */
@@ -89,8 +90,8 @@ text entry container for current hour */
 }
 
 /* save button */
-.buttonContainer {
-}
+/* .buttonContainer {
+} */
 
 .saveBtn {
   border: none;
@@ -98,7 +99,7 @@ text entry container for current hour */
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 .saveBtn:hover {
@@ -114,3 +115,5 @@ text entry container for current hour */
   padding: 8px 0px;
   font-size: 1rem;
 }
+
+/* responsive timeblocks */
