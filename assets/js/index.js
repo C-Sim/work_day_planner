@@ -15,6 +15,8 @@ const header = $(".jumbotron");
 
 const main = $("#main");
 
+const currentHour = moment().hour();
+
 // initalise LS
 onReady = () => {
   // check if tasks exists in LS
@@ -51,18 +53,36 @@ renderTime = () => {
 };
 
 renderTimeBlocks = () => {
-  // create block for each time label within object
+  // create block for each time label within object, apply key as data attribute and assign status for past/present/future
   workHours.forEach((hour) => {
-    main.append(`<section
-  class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
-  >
-  <span class="hour">${hour.time}</span>
-  <textarea class="p-2 flex-grow-1 bd-highlight textarea">
-  </textarea>
-  <div class="buttonContainer">
-    <button type="button" class="saveBtn">Save</button>
-  </div>
-  </section>`);
+    if (hour.key < currentHour) {
+      main.append(`<section
+    class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
+    >
+    <span class="hour">${hour.time}</span>
+    <textarea class="p-2 flex-grow-1 bd-highlight past textarea" data-text-key=${hour.key}>
+    </textarea>
+      <button type="button" class="saveBtn" data-key=${hour.key}>Save</button>
+    </section>`);
+    } else if (hour.key > currentHour) {
+      main.append(`<section
+    class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
+    >
+    <span class="hour">${hour.time}</span>
+    <textarea class="p-2 flex-grow-1 bd-highlight future textarea" data-text-key=${hour.key}>
+    </textarea>
+      <button type="button" class="saveBtn" data-key=${hour.key}>Save</button>
+    </section>`);
+    } else {
+      main.append(`<section
+        class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
+        >
+        <span class="hour">${hour.time}</span>
+        <textarea class="p-2 flex-grow-1 bd-highlight textarea" data-text-key=${hour.key}>
+        </textarea>
+          <button type="button" class="saveBtn" data-key=${hour.key}>Save</button>
+        </section>`);
+    }
   });
 };
 
@@ -82,8 +102,8 @@ renderPage = () => {
 };
 
 // event listener for Save button click
-// declare variable for button
-// variable.click(writeToLocalStorage);
+const saveButton = $(".saveBtn");
+saveButton.click(console.log("hi"));
 
 // event handler for page load
 $(document).ready(onReady);

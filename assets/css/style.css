@@ -62,7 +62,7 @@ body {
 
 /* text entry container */
 .textarea {
-  background-color: lightblue;
+  background-color: #06aed5;
   resize: none;
   color: darkblue;
   font-size: 12px;
@@ -73,26 +73,23 @@ body {
 /* text entry container before current hour */
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: darkgrey;
 }
 
 /* NECESSARY?
 text entry container for current hour */
-.present {
+/* .present {
   background-color: #ff6961;
   color: white;
-}
+} */
 
 /* text entry container  after current hour */
 .future {
-  background-color: #77dd77;
-  color: white;
+  background-color: lightblue;
+  color: darkblue;
 }
 
 /* save button */
-/* .buttonContainer {
-} */
-
 .saveBtn {
   border: none;
   border-top-right-radius: 15px;
