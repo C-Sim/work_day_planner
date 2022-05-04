@@ -99,9 +99,17 @@ text entry container for current hour */
   padding: 0.75rem;
 }
 
-.saveBtn:hover {
+.saveBtn:hover,
+.clearBtn:hover {
   transition: all 0.3s ease-in-out;
   color: coral;
+}
+
+.clearBtn {
+  border: none;
+  background-color: #06aed5;
+  color: white;
+  padding: 0.75rem;
 }
 
 /* footer */
