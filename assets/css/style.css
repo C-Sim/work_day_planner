@@ -25,18 +25,6 @@ body {
   margin: 1rem;
 }
 
-/* ??? */
-.description {
-  white-space: pre-wrap;
-}
-
-/* ??? */
-.row {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;
-}
-
 /* main */
 .container {
   width: 100rem;
@@ -76,13 +64,6 @@ body {
   color: darkgrey;
 }
 
-/* NECESSARY?
-text entry container for current hour */
-/* .present {
-  background-color: #ff6961;
-  color: white;
-} */
-
 /* text entry container  after current hour */
 .future {
   background-color: lightblue;
@@ -121,4 +102,9 @@ text entry container for current hour */
   font-size: 1rem;
 }
 
-/* responsive timeblocks */
+/* responsive time blocks */
+@media screen and (max-width: 576px) {
+  .time-block {
+    width: 100wvh;
+  }
+}

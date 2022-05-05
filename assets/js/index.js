@@ -15,14 +15,13 @@ const header = $(".jumbotron");
 
 const main = $("#main");
 
-const currentHour = 14;
-// moment().hour();
+const currentHour = moment().hour();
 
 // initalise LS
 const onReady = () => {
   // check if tasks exists in LS
   const tasks = readFromLocalStorage();
-  // if false then set tasks to empty array in LS
+  // if false then set tasks to empty object in LS
   if (!tasks) {
     localStorage.setItem("tasks", JSON.stringify({}));
   }
@@ -40,6 +39,7 @@ const readFromLocalStorage = () => {
 };
 
 const renderDate = () => {
+  // append date to header
   header.append(
     `<p id="currentDay" class="lead">${moment().format(
       "dddd Do MMMM YYYY"
@@ -48,31 +48,35 @@ const renderDate = () => {
 };
 
 const renderTime = () => {
+  // append time to header
   header.append(
     `<p id="currentTime" class="lead">${moment().format("H:mm")}</p>`
   );
 };
 
 const getClassName = (hour) => {
+  // if time block hour is before now, return past
   if (hour < currentHour) {
     return "past";
+    // if time block hour is after now, return future
   } else if (hour > currentHour) {
     return "future";
+    // leave current hour as-is
   } else {
   }
 };
 
 const getTaskFromLS = (hour) => {
   const tasks = readFromLocalStorage();
-
+  // get task by hour from LS
   const task = tasks[hour];
   return task;
 };
 
 const renderTimeBlocks = () => {
-  // create block for each time label within object, apply key as data attribute and assign status for past/present/future
+  // create block for each time label within object, apply key as data attribute and assign status for past/future
   workHours.forEach((hour) => {
-    //   get CSS class name
+    //   get time, CSS class name, data keys and tasks and append html to main
     main.append(`<section
     class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
     >
@@ -97,10 +101,12 @@ const renderPage = () => {
 };
 
 const getTaskByTimeBlock = (event) => {
+  //  find specific target from main section
   const target = $(event.target);
+  // if target is a button named save button, read the data key
   if (target.is('button[name="save-btn"]')) {
     const timeBlockSelected = target.attr("data-key");
-
+    // match data key of specific target to that of the text area, then store the trimmed value and write to LS
     const textAreaValue = $(`textarea[data-text-key="${timeBlockSelected}"]`)
       .val()
       .trim();
@@ -111,6 +117,7 @@ const getTaskByTimeBlock = (event) => {
 const writeToLocalStorage = (key, value) => {
   const tasks = readFromLocalStorage();
 
+  // set object for time block key and relevant value
   tasks[key] = value;
   // stringify object value
   const stringifiedValue = JSON.stringify(tasks);
@@ -124,11 +131,11 @@ const clearLocalStorage = () => {
   location.reload();
 };
 
-// event listener for Clear all button click
+// event listener for Clear All button click
 const clearButton = $(".clearBtn");
 clearButton.click(clearLocalStorage);
 
-// event listener for save click
+// event listener for Save click
 main.click(getTaskByTimeBlock);
 
 // event handler for page load
