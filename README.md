@@ -8,25 +8,19 @@ A simple calendar application that allows a user to save events for each hour of
 
 - HTML
 - CSS
-  <!-- - Animation
-  - Media queries
-  - Flexbox
-  - Variables -->
 - JavaScript
-  <!-- - Objects
-  - Arrays
-  - Intervals
-  - Timeout
-  - Event Listeners
-  - Template Strings
-  - Event Bubbling
+  - Objects
   - Loops
-  - Conditional Statements -->
+  - Conditional Statements
 - Web APIs
-  - Document Object Model
   - Local Storage
 - Third Party APIs
   - jQuery
+    - Event Listeners
+    - Template Strings
+    - Document Loading
+    - Attributes
+    - Targeting
   - Bootstrap
   - Moment.js
 - GitHub Pages
@@ -36,14 +30,14 @@ A simple calendar application that allows a user to save events for each hour of
 <details>
 <summary>Desktop viewport</summary>
 
-![desktop-viewport](...)
+![desktop-viewport](./assets/screenshots/planner_desktop.png)
 
 </details>
 
 <details>
 <summary>Mobile viewport</summary>
 
-![mobile-viewport](...)
+![mobile-viewport](./assets/screenshots/planner_mobile.png)
 
 </details>
 </br>

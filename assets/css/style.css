@@ -3,6 +3,7 @@ body {
   font-size: 16px;
   line-height: 1;
   background-color: rgb(238, 242, 244);
+  min-height: 100vh;
 }
 
 /* header */
@@ -27,7 +28,7 @@ body {
 
 /* main */
 .container {
-  width: 100rem;
+  width: 100%;
 }
 
 /* section for each row */
@@ -38,14 +39,13 @@ body {
 
 /* time container */
 .hour {
-  background-color: #ffffff;
-  color: #000000;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #06aed5;
   color: white;
-  width: 10%;
-  padding: 0.75rem;
+  width: 64px;
+  padding: 0.75rem 0;
+  font-size: auto;
 }
 
 /* text entry container */
@@ -99,12 +99,6 @@ body {
   color: rgb(238, 242, 244);
   text-align: center;
   padding: 8px 0px;
+  margin-top: 18px;
   font-size: 1rem;
-}
-
-/* responsive time blocks */
-@media screen and (max-width: 576px) {
-  .time-block {
-    width: 100wvh;
-  }
 }

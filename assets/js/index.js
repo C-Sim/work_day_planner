@@ -78,7 +78,7 @@ const renderTimeBlocks = () => {
   workHours.forEach((hour) => {
     //   get time, CSS class name, data keys and tasks and append html to main
     main.append(`<section
-    class="d-inline-flex p-2 bd-highlight justify-content-center align-items-center time-block"
+    class="d-flex p-2 bd-highlight justify-content-center align-items-center time-block"
     >
     <span class="hour">${hour.time}</span>
     <textarea class="p-2 flex-grow-1 bd-highlight ${getClassName(
