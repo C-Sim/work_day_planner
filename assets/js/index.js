@@ -15,6 +15,9 @@ const header = $(".jumbotron");
 
 const main = $("#main");
 
+// event listener for Clear All button click
+const clearButton = $(".clearBtn");
+
 const currentHour = moment().hour();
 
 // initalise LS
@@ -31,10 +34,8 @@ const onReady = () => {
 
 // get tasks from local storage
 const readFromLocalStorage = () => {
-  // get from LS by key
-  const getTasks = localStorage.getItem("tasks");
-  // parse LS data
-  const parsedData = JSON.parse(getTasks);
+  // get from LS & parse LS data
+  const parsedData = JSON.parse(localStorage.getItem("tasks"));
   return parsedData;
 };
 
@@ -63,14 +64,14 @@ const getClassName = (hour) => {
     return "future";
     // leave current hour as-is
   } else {
+    return "";
   }
 };
 
 const getTaskFromLS = (hour) => {
   const tasks = readFromLocalStorage();
   // get task by hour from LS
-  const task = tasks[hour];
-  return task;
+  return tasks[hour];
 };
 
 const renderTimeBlocks = () => {
@@ -131,8 +132,6 @@ const clearLocalStorage = () => {
   location.reload();
 };
 
-// event listener for Clear All button click
-const clearButton = $(".clearBtn");
 clearButton.click(clearLocalStorage);
 
 // event listener for Save click
